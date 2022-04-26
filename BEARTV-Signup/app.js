@@ -3,6 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const request = require('request');
 const https = require('https');
+const config = require('./config.json');
 
 // Create function to represent packages
 const app = express();
@@ -19,12 +20,12 @@ app.use(bodyParser.urlencoded({
 const port = process.env.PORT;
 
 // Home page
-app.get("/", function(req, res) {
+app.get("/", function (req, res) {
   res.sendFile(__dirname + "/signup.html");
 });
 
 // Post HTML file to Server
-app.post("/", function(req, res) {
+app.post("/", function (req, res) {
   const firstName = req.body.fName;
   const lastName = req.body.lName;
   const email = req.body.email;
@@ -45,26 +46,26 @@ app.post("/", function(req, res) {
   const jsonData = JSON.stringify(data);
 
   // Create url for Mailchimp servers - last section is the User List ID
-  const url = "https://us14.api.mailchimp.com/3.0/lists/eedb477f58";
+  const url = config.MAILCHIMP_URL;
 
   // Create options
   // auth is a string, any values followed by ':', followed by your mailchimp auth code
   const options = {
     method: "POST",
-    auth: "j1a2m3e4s5:154138efa386a500ef265dfe54f3d10a-us14"
+    auth: config.MAILCHIP_AUTH
   };
 
   // Set request from HTTPS
-  const request = https.request(url, options, function(response) {
+  const request = https.request(url, options, function (response) {
 
     // Get the statusCode in order to redirect the client
-    if (response.statusCode === 200){
+    if (response.statusCode === 200) {
       res.sendFile(__dirname + "/success.html");
     } else {
       res.sendFile(__dirname + "/failure.html");
     }
 
-    response.on("data", function(data) {
+    response.on("data", function (data) {
       console.log(JSON.parse(data));
     });
   })
@@ -75,14 +76,14 @@ app.post("/", function(req, res) {
 });
 
 // Redirect the user back to the home page if the request fails
-app.post("/failure", function(req, res){
+app.post("/failure", function (req, res) {
   res.redirect("/")
 })
 
 
 // Make the app listen on the selected port
 // Using || (OR) allows the app to listen on cloud server and local 3000
-app.listen(port || 3000, function() {
+app.listen(port || 3000, function () {
   console.log(`Server is running on port ${port || 3000}`);
 });
 
