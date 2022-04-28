@@ -1,0 +1,15 @@
+{
+  "name": "fruitsproject",
+  "version": "1.0.0",
+  "description": "App to create a fruit rating database.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "James Barber",
+  "license": "ISC",
+  "dependencies": {
+    "mongodb": "4.5",
+    "mongoose": "^6.3.0"
+  }
+}
