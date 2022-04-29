@@ -1,0 +1,3 @@
+{
+    "MONGOOSE_CONNECT": "mongodb+srv://jbarber34:Wheeles34@todolist.oxbuv.mongodb.net/todolistDB"
+}
