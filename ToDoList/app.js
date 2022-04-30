@@ -9,8 +9,8 @@ const config = require('./config.json');
 // Create app constant
 const app = express();
 
-// Set the port for the server
-const port = 3000;
+// Create the Heroku port for express to run on
+const port = process.env.PORT;
 // Find date by using custom function for list titles
 const day = dates.getDate();
 
@@ -189,5 +189,5 @@ app.post("/delete", (req, res) => {
 // Make the app listen on the selected port
 // Using || (OR) allows the app to listen on cloud server and local 3000
 app.listen(port || 3000, () => {
-  console.log(`Server is running on port ${port || 3000}`);
+  console.log(`Server has started on port ${port || 3000}`);
 });
