@@ -4,6 +4,9 @@
 
 <h1><%= postTitle %></h1>
 <p><%= postContent %></p>
+<form action="/delete" method="post">
+    <button type="submit" name="button" class="btn btn-danger btn-sm" value="<%= postId %>">Delete</button>
+</form>
 
 
 <!-- Add footer from layout partial -->
