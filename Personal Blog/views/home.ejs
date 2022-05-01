@@ -1,0 +1,15 @@
+<!-- Add header from layout partial -->
+<%- include('partials/header'); -%>
+
+<h1>Home</h1>
+<p><%= homeContent %></p>
+
+<!-- Log new posts entered (better alternative to for loops)-->
+<% posts.forEach((post) => { %>
+  <h1> <%= post.title %> </h1>
+  <p> <%= post.content.substring(0, 100) + "... " %>
+    <a href="/posts/<%=post.title%>">Read More</a></p>
+<% }); %>
+
+<!-- Add footer from layout partial -->
+<%- include('partials/footer'); -%>
