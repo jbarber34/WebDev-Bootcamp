@@ -97,11 +97,11 @@ app.get("/posts/:postId", (req, res) => {
 
 
 // Delete unecessary posts
-app.post("/delete", function (req, res) {
+app.post("/delete", (req, res) => {
 
   const idDelete = req.body.button;
 
-  Post.findByIdAndRemove(idDelete, function (err) {
+  Post.findByIdAndRemove(idDelete, (err) => {
     if (!err) {
       console.log("Successfully deleted post id: " + idDelete);
     }
@@ -115,6 +115,6 @@ app.post("/delete", function (req, res) {
 
 
 
-app.listen(3000, function () {
+app.listen(3000, () => {
   console.log("Server started on port 3000");
 });
