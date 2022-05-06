@@ -28,6 +28,49 @@ const wikiSchema = new mongoose.Schema({
 
 const Article = mongoose.model("Article", wikiSchema);
 
+// Get all articles from database
+app.get("/articles", (req, res) => {
+    // Find all articles and send back to client
+    Article.find((err, foundArticles) => {
+        if (!err) {
+            res.send(foundArticles);
+        } else {
+            res.send(err);
+        }
+    });
+});
+
+
+// Create the post request from client
+app.post("/articles", (req, res) => {
+    // Create new articles in database
+    const newArticle = new Article({
+        title: req.body.title,
+        content: req.body.content
+    });
+
+    // Save the new article
+    newArticle.save((err) => {
+        if (!err) {
+            res.send("Successfully added a new article.")
+        } else {
+            res.send(err);
+        }
+    });
+});
+
+
+// Delete entire database
+app.delete("/articles", (req, res) => {
+    Article.deleteMany((err) => {
+        if (!err) {
+            res.send("Successfully deleted all articles.")
+        } else {
+            res.send(err);
+        };
+    });
+});
+
 
 
 // Make the app listen on the selected port
