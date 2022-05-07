@@ -385,6 +385,7 @@ Course Notes/JavaScript_Notes.js
 Course Notes/MongoDB.txt
 Course Notes/Terminal_Commands_Git.txt
 Course Notes/REST Api.txt
+Course Notes/Authentication_Security.txt
 WeatherProject/config.js
 Javascript Notes/index.js
 Personal_Website/images/chillies.png
@@ -393,3 +394,4 @@ ToDoList/config.json
 FruitsProject/node_modules
 WeatherProject/node_modules
 ToDoList/node_modules
+Wiki-API/node_modules
