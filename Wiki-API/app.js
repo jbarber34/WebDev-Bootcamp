@@ -28,48 +28,113 @@ const wikiSchema = new mongoose.Schema({
 
 const Article = mongoose.model("Article", wikiSchema);
 
-// Get all articles from database
-app.get("/articles", (req, res) => {
-    // Find all articles and send back to client
-    Article.find((err, foundArticles) => {
-        if (!err) {
-            res.send(foundArticles);
-        } else {
-            res.send(err);
-        }
+////////////////////////////// Requests Targeting ALL Articles //////////////////////////////
+// Route all requests through the /articles path for changing all collections
+app.route("/articles")
+    // Get all articles from database
+    .get((req, res) => {
+        // Find all articles and send back to client
+        Article.find((err, foundArticles) => {
+            if (!err) {
+                res.send(foundArticles);
+            } else {
+                res.send(err);
+            }
+        });
+    })
+
+
+    // Create the post request from client
+    .post((req, res) => {
+        // Create new articles in database
+        const newArticle = new Article({
+            title: req.body.title,
+            content: req.body.content
+        });
+
+        // Save the new article
+        newArticle.save((err) => {
+            if (!err) {
+                res.send("Successfully added a new article.");
+            } else {
+                res.send(err);
+            }
+        });
+    })
+
+
+    // Delete entire database
+    .delete((req, res) => {
+        Article.deleteMany((err) => {
+            if (!err) {
+                res.send("Successfully deleted all articles.");
+            } else {
+                res.send(err);
+            };
+        });
     });
-});
 
 
-// Create the post request from client
-app.post("/articles", (req, res) => {
-    // Create new articles in database
-    const newArticle = new Article({
-        title: req.body.title,
-        content: req.body.content
+////////////////////////////// Requests Targeting SPECIFIC Articles //////////////////////////////
+
+// Route requests through the /articles/targeted path for changing single collections
+app.route("/articles/:articleTitle")
+    // Get specific articles from database
+    .get((req, res) => {
+        // Find all articles and send back to client
+        Article.findOne({ title: req.params.articleTitle }, (err, foundArticle) => {
+            if (foundArticle) {
+                res.send(foundArticle);
+            } else {
+                res.send("No articles matching that title were found.");
+            }
+        });
+    })
+
+    // Update an entire article
+    .put((req, res) => {
+        // Update a single article
+        Article.findOneAndUpdate(
+            { title: req.params.articleTitle },
+            {
+                title: req.body.title,
+                content: req.body.content
+            },
+            { overwrite: true }, (err) => {
+                if (!err) {
+                    res.send("Successfully updated article.");
+                } else {
+                    res.send(err)
+                }
+            });
+    })
+
+    // Update only certain portion of an article
+    .patch((req, res) => {
+        Article.findOneAndUpdate(
+            { title: req.params.articleTitle },
+            { $set: req.body },
+            (err) => {
+                if (!err) {
+                    res.send("Successfully updated selected portion(s) of article.");
+                } else {
+                    res.send(err)
+                }
+            });
+    })
+
+    // Delete a specific articl
+    .delete((req, res) => {
+        Article.deleteOne({ title: req.params.articleTitle }, (err) => {
+            if (!err) {
+                res.send("Successfully deleted selected article.");
+            } else {
+                res.send(err);
+            };
+        });
     });
 
-    // Save the new article
-    newArticle.save((err) => {
-        if (!err) {
-            res.send("Successfully added a new article.")
-        } else {
-            res.send(err);
-        }
-    });
-});
 
-
-// Delete entire database
-app.delete("/articles", (req, res) => {
-    Article.deleteMany((err) => {
-        if (!err) {
-            res.send("Successfully deleted all articles.")
-        } else {
-            res.send(err);
-        };
-    });
-});
 
 
 
