@@ -1,366 +1,36 @@
+# Course Documents
+12+Rules+to+Learn+to+Code+eBook+[Updated+26.11.18].pdf
+AppBreweryCornellNotesTemplate.pdf
+Web Dev Syllabus.pdf
+
+# DOM Lesson
 DOM/index.html
 DOM/index.js
 DOM/styles.css
+
+# Bootstrap Lession
 Bootstrap-Installation/index.html
+
+# Intro to Node Lesson
 Intro to Node/index.js
 Intro to Node/package-lock.json
 Intro to Node/package.json
-Intro to Node/node_modules/.package-lock.json
-Intro to Node/node_modules/superheroes/index.d.ts
-Intro to Node/node_modules/superheroes/index.js
-Intro to Node/node_modules/superheroes/license
-Intro to Node/node_modules/superheroes/package.json
-Intro to Node/node_modules/superheroes/readme.md
-Intro to Node/node_modules/superheroes/superheroes.json
-Intro to Node/node_modules/supervillains/index.d.ts
-Intro to Node/node_modules/supervillains/index.js
-Intro to Node/node_modules/supervillains/license
-Intro to Node/node_modules/supervillains/package.json
-Intro to Node/node_modules/supervillains/readme.md
-Intro to Node/node_modules/supervillains/supervillains.json
-Intro to Node/node_modules/unique-random/index.d.ts
-Intro to Node/node_modules/unique-random/index.js
-Intro to Node/node_modules/unique-random/license
-Intro to Node/node_modules/unique-random/package.json
-Intro to Node/node_modules/unique-random/readme.md
-Intro to Node/node_modules/unique-random-array/index.d.ts
-Intro to Node/node_modules/unique-random-array/index.js
-Intro to Node/node_modules/unique-random-array/license
-Intro to Node/node_modules/unique-random-array/package.json
-Intro to Node/node_modules/unique-random-array/readme.md
+
+# Express Lesson
 my-express-server/package-lock.json
 my-express-server/package.json
 my-express-server/server.js
-my-express-server/node_modules/.package-lock.json
-my-express-server/node_modules/.bin/mime
-my-express-server/node_modules/accepts/HISTORY.md
-my-express-server/node_modules/accepts/index.js
-my-express-server/node_modules/accepts/LICENSE
-my-express-server/node_modules/accepts/package.json
-my-express-server/node_modules/accepts/README.md
-my-express-server/node_modules/array-flatten/array-flatten.js
-my-express-server/node_modules/array-flatten/LICENSE
-my-express-server/node_modules/array-flatten/package.json
-my-express-server/node_modules/array-flatten/README.md
-my-express-server/node_modules/body-parser/HISTORY.md
-my-express-server/node_modules/body-parser/index.js
-my-express-server/node_modules/body-parser/LICENSE
-my-express-server/node_modules/body-parser/package.json
-my-express-server/node_modules/body-parser/README.md
-my-express-server/node_modules/body-parser/lib/read.js
-my-express-server/node_modules/body-parser/lib/types/json.js
-my-express-server/node_modules/body-parser/lib/types/raw.js
-my-express-server/node_modules/body-parser/lib/types/text.js
-my-express-server/node_modules/body-parser/lib/types/urlencoded.js
-my-express-server/node_modules/bytes/History.md
-my-express-server/node_modules/bytes/index.js
-my-express-server/node_modules/bytes/LICENSE
-my-express-server/node_modules/bytes/package.json
-my-express-server/node_modules/bytes/Readme.md
-my-express-server/node_modules/content-disposition/HISTORY.md
-my-express-server/node_modules/content-disposition/index.js
-my-express-server/node_modules/content-disposition/LICENSE
-my-express-server/node_modules/content-disposition/package.json
-my-express-server/node_modules/content-disposition/README.md
-my-express-server/node_modules/content-type/HISTORY.md
-my-express-server/node_modules/content-type/index.js
-my-express-server/node_modules/content-type/LICENSE
-my-express-server/node_modules/content-type/package.json
-my-express-server/node_modules/content-type/README.md
-my-express-server/node_modules/cookie/HISTORY.md
-my-express-server/node_modules/cookie/index.js
-my-express-server/node_modules/cookie/LICENSE
-my-express-server/node_modules/cookie/package.json
-my-express-server/node_modules/cookie/README.md
-my-express-server/node_modules/cookie-signature/.npmignore
-my-express-server/node_modules/cookie-signature/History.md
-my-express-server/node_modules/cookie-signature/index.js
-my-express-server/node_modules/cookie-signature/package.json
-my-express-server/node_modules/cookie-signature/Readme.md
-my-express-server/node_modules/debug/.coveralls.yml
-my-express-server/node_modules/debug/.eslintrc
-my-express-server/node_modules/debug/.npmignore
-my-express-server/node_modules/debug/.travis.yml
-my-express-server/node_modules/debug/CHANGELOG.md
-my-express-server/node_modules/debug/component.json
-my-express-server/node_modules/debug/karma.conf.js
-my-express-server/node_modules/debug/LICENSE
-my-express-server/node_modules/debug/Makefile
-my-express-server/node_modules/debug/node.js
-my-express-server/node_modules/debug/package.json
-my-express-server/node_modules/debug/README.md
-my-express-server/node_modules/debug/src/browser.js
-my-express-server/node_modules/debug/src/debug.js
-my-express-server/node_modules/debug/src/index.js
-my-express-server/node_modules/debug/src/inspector-log.js
-my-express-server/node_modules/debug/src/node.js
-my-express-server/node_modules/depd/History.md
-my-express-server/node_modules/depd/index.js
-my-express-server/node_modules/depd/LICENSE
-my-express-server/node_modules/depd/package.json
-my-express-server/node_modules/depd/Readme.md
-my-express-server/node_modules/depd/lib/browser/index.js
-my-express-server/node_modules/depd/lib/compat/callsite-tostring.js
-my-express-server/node_modules/depd/lib/compat/event-listener-count.js
-my-express-server/node_modules/depd/lib/compat/index.js
-my-express-server/node_modules/destroy/index.js
-my-express-server/node_modules/destroy/LICENSE
-my-express-server/node_modules/destroy/package.json
-my-express-server/node_modules/destroy/README.md
-my-express-server/node_modules/ee-first/index.js
-my-express-server/node_modules/ee-first/LICENSE
-my-express-server/node_modules/ee-first/package.json
-my-express-server/node_modules/ee-first/README.md
-my-express-server/node_modules/encodeurl/HISTORY.md
-my-express-server/node_modules/encodeurl/index.js
-my-express-server/node_modules/encodeurl/LICENSE
-my-express-server/node_modules/encodeurl/package.json
-my-express-server/node_modules/encodeurl/README.md
-my-express-server/node_modules/escape-html/index.js
-my-express-server/node_modules/escape-html/LICENSE
-my-express-server/node_modules/escape-html/package.json
-my-express-server/node_modules/escape-html/Readme.md
-my-express-server/node_modules/etag/HISTORY.md
-my-express-server/node_modules/etag/index.js
-my-express-server/node_modules/etag/LICENSE
-my-express-server/node_modules/etag/package.json
-my-express-server/node_modules/etag/README.md
-my-express-server/node_modules/express/History.md
-my-express-server/node_modules/express/index.js
-my-express-server/node_modules/express/LICENSE
-my-express-server/node_modules/express/package.json
-my-express-server/node_modules/express/Readme.md
-my-express-server/node_modules/express/lib/application.js
-my-express-server/node_modules/express/lib/express.js
-my-express-server/node_modules/express/lib/request.js
-my-express-server/node_modules/express/lib/response.js
-my-express-server/node_modules/express/lib/utils.js
-my-express-server/node_modules/express/lib/view.js
-my-express-server/node_modules/express/lib/middleware/init.js
-my-express-server/node_modules/express/lib/middleware/query.js
-my-express-server/node_modules/express/lib/router/index.js
-my-express-server/node_modules/express/lib/router/layer.js
-my-express-server/node_modules/express/lib/router/route.js
-my-express-server/node_modules/finalhandler/HISTORY.md
-my-express-server/node_modules/finalhandler/index.js
-my-express-server/node_modules/finalhandler/LICENSE
-my-express-server/node_modules/finalhandler/package.json
-my-express-server/node_modules/finalhandler/README.md
-my-express-server/node_modules/forwarded/HISTORY.md
-my-express-server/node_modules/forwarded/index.js
-my-express-server/node_modules/forwarded/LICENSE
-my-express-server/node_modules/forwarded/package.json
-my-express-server/node_modules/forwarded/README.md
-my-express-server/node_modules/fresh/HISTORY.md
-my-express-server/node_modules/fresh/index.js
-my-express-server/node_modules/fresh/LICENSE
-my-express-server/node_modules/fresh/package.json
-my-express-server/node_modules/fresh/README.md
-my-express-server/node_modules/http-errors/HISTORY.md
-my-express-server/node_modules/http-errors/index.js
-my-express-server/node_modules/http-errors/LICENSE
-my-express-server/node_modules/http-errors/package.json
-my-express-server/node_modules/http-errors/README.md
-my-express-server/node_modules/iconv-lite/Changelog.md
-my-express-server/node_modules/iconv-lite/LICENSE
-my-express-server/node_modules/iconv-lite/package.json
-my-express-server/node_modules/iconv-lite/README.md
-my-express-server/node_modules/iconv-lite/encodings/dbcs-codec.js
-my-express-server/node_modules/iconv-lite/encodings/dbcs-data.js
-my-express-server/node_modules/iconv-lite/encodings/index.js
-my-express-server/node_modules/iconv-lite/encodings/internal.js
-my-express-server/node_modules/iconv-lite/encodings/sbcs-codec.js
-my-express-server/node_modules/iconv-lite/encodings/sbcs-data-generated.js
-my-express-server/node_modules/iconv-lite/encodings/sbcs-data.js
-my-express-server/node_modules/iconv-lite/encodings/utf7.js
-my-express-server/node_modules/iconv-lite/encodings/utf16.js
-my-express-server/node_modules/iconv-lite/encodings/tables/big5-added.json
-my-express-server/node_modules/iconv-lite/encodings/tables/cp936.json
-my-express-server/node_modules/iconv-lite/encodings/tables/cp949.json
-my-express-server/node_modules/iconv-lite/encodings/tables/cp950.json
-my-express-server/node_modules/iconv-lite/encodings/tables/eucjp.json
-my-express-server/node_modules/iconv-lite/encodings/tables/gb18030-ranges.json
-my-express-server/node_modules/iconv-lite/encodings/tables/gbk-added.json
-my-express-server/node_modules/iconv-lite/encodings/tables/shiftjis.json
-my-express-server/node_modules/iconv-lite/lib/bom-handling.js
-my-express-server/node_modules/iconv-lite/lib/extend-node.js
-my-express-server/node_modules/iconv-lite/lib/index.d.ts
-my-express-server/node_modules/iconv-lite/lib/index.js
-my-express-server/node_modules/iconv-lite/lib/streams.js
-my-express-server/node_modules/inherits/inherits_browser.js
-my-express-server/node_modules/inherits/inherits.js
-my-express-server/node_modules/inherits/LICENSE
-my-express-server/node_modules/inherits/package.json
-my-express-server/node_modules/inherits/README.md
-my-express-server/node_modules/ipaddr.js/ipaddr.min.js
-my-express-server/node_modules/ipaddr.js/LICENSE
-my-express-server/node_modules/ipaddr.js/package.json
-my-express-server/node_modules/ipaddr.js/README.md
-my-express-server/node_modules/ipaddr.js/lib/ipaddr.js
-my-express-server/node_modules/ipaddr.js/lib/ipaddr.js.d.ts
-my-express-server/node_modules/media-typer/HISTORY.md
-my-express-server/node_modules/media-typer/index.js
-my-express-server/node_modules/media-typer/LICENSE
-my-express-server/node_modules/media-typer/package.json
-my-express-server/node_modules/media-typer/README.md
-my-express-server/node_modules/merge-descriptors/HISTORY.md
-my-express-server/node_modules/merge-descriptors/index.js
-my-express-server/node_modules/merge-descriptors/LICENSE
-my-express-server/node_modules/merge-descriptors/package.json
-my-express-server/node_modules/merge-descriptors/README.md
-my-express-server/node_modules/methods/HISTORY.md
-my-express-server/node_modules/methods/index.js
-my-express-server/node_modules/methods/LICENSE
-my-express-server/node_modules/methods/package.json
-my-express-server/node_modules/methods/README.md
-my-express-server/node_modules/mime/.npmignore
-my-express-server/node_modules/mime/CHANGELOG.md
-my-express-server/node_modules/mime/cli.js
-my-express-server/node_modules/mime/LICENSE
-my-express-server/node_modules/mime/mime.js
-my-express-server/node_modules/mime/package.json
-my-express-server/node_modules/mime/README.md
-my-express-server/node_modules/mime/types.json
-my-express-server/node_modules/mime/src/build.js
-my-express-server/node_modules/mime/src/test.js
-my-express-server/node_modules/mime-db/db.json
-my-express-server/node_modules/mime-db/HISTORY.md
-my-express-server/node_modules/mime-db/index.js
-my-express-server/node_modules/mime-db/LICENSE
-my-express-server/node_modules/mime-db/package.json
-my-express-server/node_modules/mime-db/README.md
-my-express-server/node_modules/mime-types/HISTORY.md
-my-express-server/node_modules/mime-types/index.js
-my-express-server/node_modules/mime-types/LICENSE
-my-express-server/node_modules/mime-types/package.json
-my-express-server/node_modules/mime-types/README.md
-my-express-server/node_modules/ms/index.js
-my-express-server/node_modules/ms/license.md
-my-express-server/node_modules/ms/package.json
-my-express-server/node_modules/ms/readme.md
-my-express-server/node_modules/negotiator/HISTORY.md
-my-express-server/node_modules/negotiator/index.js
-my-express-server/node_modules/negotiator/LICENSE
-my-express-server/node_modules/negotiator/package.json
-my-express-server/node_modules/negotiator/README.md
-my-express-server/node_modules/negotiator/lib/charset.js
-my-express-server/node_modules/negotiator/lib/encoding.js
-my-express-server/node_modules/negotiator/lib/language.js
-my-express-server/node_modules/negotiator/lib/mediaType.js
-my-express-server/node_modules/on-finished/HISTORY.md
-my-express-server/node_modules/on-finished/index.js
-my-express-server/node_modules/on-finished/LICENSE
-my-express-server/node_modules/on-finished/package.json
-my-express-server/node_modules/on-finished/README.md
-my-express-server/node_modules/parseurl/HISTORY.md
-my-express-server/node_modules/parseurl/index.js
-my-express-server/node_modules/parseurl/LICENSE
-my-express-server/node_modules/parseurl/package.json
-my-express-server/node_modules/parseurl/README.md
-my-express-server/node_modules/path-to-regexp/History.md
-my-express-server/node_modules/path-to-regexp/index.js
-my-express-server/node_modules/path-to-regexp/LICENSE
-my-express-server/node_modules/path-to-regexp/package.json
-my-express-server/node_modules/path-to-regexp/Readme.md
-my-express-server/node_modules/proxy-addr/HISTORY.md
-my-express-server/node_modules/proxy-addr/index.js
-my-express-server/node_modules/proxy-addr/LICENSE
-my-express-server/node_modules/proxy-addr/package.json
-my-express-server/node_modules/proxy-addr/README.md
-my-express-server/node_modules/qs/.editorconfig
-my-express-server/node_modules/qs/.eslintrc
-my-express-server/node_modules/qs/.nycrc
-my-express-server/node_modules/qs/CHANGELOG.md
-my-express-server/node_modules/qs/LICENSE.md
-my-express-server/node_modules/qs/package.json
-my-express-server/node_modules/qs/README.md
-my-express-server/node_modules/qs/.github/FUNDING.yml
-my-express-server/node_modules/qs/dist/qs.js
-my-express-server/node_modules/qs/lib/formats.js
-my-express-server/node_modules/qs/lib/index.js
-my-express-server/node_modules/qs/lib/parse.js
-my-express-server/node_modules/qs/lib/stringify.js
-my-express-server/node_modules/qs/lib/utils.js
-my-express-server/node_modules/qs/test/parse.js
-my-express-server/node_modules/qs/test/stringify.js
-my-express-server/node_modules/qs/test/utils.js
-my-express-server/node_modules/range-parser/HISTORY.md
-my-express-server/node_modules/range-parser/index.js
-my-express-server/node_modules/range-parser/LICENSE
-my-express-server/node_modules/range-parser/package.json
-my-express-server/node_modules/range-parser/README.md
-my-express-server/node_modules/raw-body/HISTORY.md
-my-express-server/node_modules/raw-body/index.d.ts
-my-express-server/node_modules/raw-body/index.js
-my-express-server/node_modules/raw-body/LICENSE
-my-express-server/node_modules/raw-body/package.json
-my-express-server/node_modules/raw-body/README.md
-my-express-server/node_modules/safe-buffer/index.d.ts
-my-express-server/node_modules/safe-buffer/index.js
-my-express-server/node_modules/safe-buffer/LICENSE
-my-express-server/node_modules/safe-buffer/package.json
-my-express-server/node_modules/safe-buffer/README.md
-my-express-server/node_modules/safer-buffer/dangerous.js
-my-express-server/node_modules/safer-buffer/LICENSE
-my-express-server/node_modules/safer-buffer/package.json
-my-express-server/node_modules/safer-buffer/Porting-Buffer.md
-my-express-server/node_modules/safer-buffer/Readme.md
-my-express-server/node_modules/safer-buffer/safer.js
-my-express-server/node_modules/safer-buffer/tests.js
-my-express-server/node_modules/send/HISTORY.md
-my-express-server/node_modules/send/index.js
-my-express-server/node_modules/send/LICENSE
-my-express-server/node_modules/send/package.json
-my-express-server/node_modules/send/README.md
-my-express-server/node_modules/send/node_modules/ms/index.js
-my-express-server/node_modules/send/node_modules/ms/license.md
-my-express-server/node_modules/send/node_modules/ms/package.json
-my-express-server/node_modules/send/node_modules/ms/readme.md
-my-express-server/node_modules/serve-static/HISTORY.md
-my-express-server/node_modules/serve-static/index.js
-my-express-server/node_modules/serve-static/LICENSE
-my-express-server/node_modules/serve-static/package.json
-my-express-server/node_modules/serve-static/README.md
-my-express-server/node_modules/setprototypeof/index.d.ts
-my-express-server/node_modules/setprototypeof/index.js
-my-express-server/node_modules/setprototypeof/LICENSE
-my-express-server/node_modules/setprototypeof/package.json
-my-express-server/node_modules/setprototypeof/README.md
-my-express-server/node_modules/setprototypeof/test/index.js
-my-express-server/node_modules/statuses/codes.json
-my-express-server/node_modules/statuses/HISTORY.md
-my-express-server/node_modules/statuses/index.js
-my-express-server/node_modules/statuses/LICENSE
-my-express-server/node_modules/statuses/package.json
-my-express-server/node_modules/statuses/README.md
-my-express-server/node_modules/toidentifier/HISTORY.md
-my-express-server/node_modules/toidentifier/index.js
-my-express-server/node_modules/toidentifier/LICENSE
-my-express-server/node_modules/toidentifier/package.json
-my-express-server/node_modules/toidentifier/README.md
-my-express-server/node_modules/type-is/HISTORY.md
-my-express-server/node_modules/type-is/index.js
-my-express-server/node_modules/type-is/LICENSE
-my-express-server/node_modules/type-is/package.json
-my-express-server/node_modules/type-is/README.md
-my-express-server/node_modules/unpipe/HISTORY.md
-my-express-server/node_modules/unpipe/index.js
-my-express-server/node_modules/unpipe/LICENSE
-my-express-server/node_modules/unpipe/package.json
-my-express-server/node_modules/unpipe/README.md
-my-express-server/node_modules/utils-merge/.npmignore
-my-express-server/node_modules/utils-merge/index.js
-my-express-server/node_modules/utils-merge/LICENSE
-my-express-server/node_modules/utils-merge/package.json
-my-express-server/node_modules/utils-merge/README.md
-my-express-server/node_modules/vary/HISTORY.md
-my-express-server/node_modules/vary/index.js
-my-express-server/node_modules/vary/LICENSE
-my-express-server/node_modules/vary/package.json
-my-express-server/node_modules/vary/README.md
+
+# jQuery Lesson
 jQuery/index.html
 jQuery/index.js
 jQuery/styles.css
+
+# Personal Website Project
+Personal_Website/images/chillies.png
+Personal_Website/images/computer.png
+
+# TinDog Project
 TinDog Website/index.html
 TinDog Website/README.md
 TinDog Website/css/styles.css
@@ -371,28 +41,31 @@ TinDog Website/images/lady-img.jpg
 TinDog Website/images/mashable.png
 TinDog Website/images/TechCrunch.png
 TinDog Website/images/tnw.png
-12+Rules+to+Learn+to+Code+eBook+[Updated+26.11.18].pdf
-AppBreweryCornellNotesTemplate.pdf
-Web Dev Syllabus.pdf
-WeatherProject/config.json
-ToDoListv2/config.json
-BEARTV-Signup/config.json
+
+# Course Notes
 Course Notes/Connecting Heroku to MongoDB.txt
 Course Notes/EJS Templates.txt
 Course Notes/General JavaScript Notes.txt
 Course Notes/Hosting_On_Heroku.txt
 Course Notes/JavaScript_Notes.js
+Javascript Notes/index.js
 Course Notes/MongoDB.txt
 Course Notes/Terminal_Commands_Git.txt
 Course Notes/REST Api.txt
 Course Notes/Authentication_Security.txt
-WeatherProject/config.js
-Javascript Notes/index.js
-Personal_Website/images/chillies.png
-Personal_Website/images/computer.png
-ToDoList/config.json
+
+# Node Modules
+Intro to Node/node_modules
+my-express-server/node_modules
 FruitsProject/node_modules
 WeatherProject/node_modules
 ToDoList/node_modules
 Wiki-API/node_modules
 Secrets App/node_modules
+
+# Config/Environment Files
+WeatherProject/config.json
+BEARTV-Signup/config.json
+WeatherProject/config.js
+ToDoList/config.json
+Secrets App/.env

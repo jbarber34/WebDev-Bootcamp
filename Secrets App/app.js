@@ -1,7 +1,9 @@
+require('dotenv').config()
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const mongoose = require("mongoose");
+const encrypt = require('mongoose-encryption');
 
 const app = express();
 
@@ -21,10 +23,16 @@ const port = 3000;
 mongoose.connect("mongodb://localhost:27017/secretsUserDB")
 
 // Create mongoose schema
-const userSchema = {
+const userSchema = new mongoose.Schema({
     email: String,
     password: String
-}
+});
+
+// Load encryption key
+const secret = process.env.SECRET_KEY
+
+// Add encrypted plugin to schema
+userSchema.plugin(encrypt, { secret: secret, encryptedFields: ['password'] });
 
 // Build mongoose model
 const User = new mongoose.model("User", userSchema);
