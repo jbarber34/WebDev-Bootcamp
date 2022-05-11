@@ -2,7 +2,8 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const mongoose = require("mongoose");
-const md5 = require("md5");
+const bcrypt = require("bcrypt");
+const saltRounds = 10;
 
 const app = express();
 
@@ -48,35 +49,41 @@ app.get("/register", (req, res) => {
 
 // Post routes
 app.post("/register", (req, res) => {
-    const newUser = new User({
-        email: req.body.username,
-        // Use md5 hash function to encrypt the incoming password
-        password: md5(req.body.password)
-    });
 
-    newUser.save((err) => {
-        if (err) {
-            console.log(err);
-        } else {
-            res.render("secrets");
-        }
+    // Encrypt password with salting and hashing
+    bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
+        const newUser = new User({
+            email: req.body.username,
+            // Use the hash from the bcrypt.hash() function
+            password: hash
+        });
+
+        newUser.save((err) => {
+            if (err) {
+                console.log(err);
+            } else {
+                res.render("secrets");
+            }
+        });
     });
 });
 
 app.post("/login", (req, res) => {
-    const username = req.body.username
-    const password = md5(req.body.password)
+    const username = req.body.username;
+    const password = req.body.password;
 
     User.findOne({ email: username }, (err, foundUser) => {
         if (err) {
             console.log(err);
         } else {
             if (foundUser) {
-                if (foundUser.password === password) {
-                    res.render("secrets")
-                } else {
-                    res.send("Incorrect Username or Password")
-                };
+                bcrypt.compare(password, foundUser.password, (err, result) => {
+                    if (result === true) {
+                        res.render("secrets");
+                    } else {
+                        res.send("Incorrect username or password.")
+                    }
+                });
             };
         };
     });
