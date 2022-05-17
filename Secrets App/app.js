@@ -43,7 +43,8 @@ const userSchema = new mongoose.Schema({
     email: String,
     password: String,
     googleId: String,
-    facebookId: String
+    facebookId: String,
+    secret: String
 });
 
 // Hash and salt passwords and save users
@@ -131,8 +132,22 @@ app.get("/register", (req, res) => {
 
 // Secrets Page
 app.get("/secrets", (req, res) => {
+    // Find all secrets fields in database that are not null
+    User.find({ "secret": { $ne: null } }, (err, foundUsers) => {
+        if (err) {
+            console.log(err);
+        } else {
+            if (foundUsers) {
+                res.render("secrets", { usersWithSecrets: foundUsers });
+            }
+        }
+    });
+});
+
+// Submit Page
+app.get("/submit", (req, res) => {
     if (req.isAuthenticated()) {
-        res.render("secrets");
+        res.render("submit");
     } else {
         res.redirect("/login");
     }
@@ -176,6 +191,25 @@ app.post("/login", (req, res) => {
             passport.authenticate("local")(req, res, () => {
                 res.redirect("/secrets");
             })
+        }
+    });
+});
+
+app.post("/submit", (req, res) => {
+    // Create const with the submitted secret from the /submit page
+    const submittedSecret = req.body.secret;
+
+    // Find the current user to save their secret
+    User.findById(req.user, (err, foundUser) => {
+        if (err) {
+            console.log(err);
+        } else {
+            if (foundUser) {
+                foundUser.secret = submittedSecret;
+                foundUser.save(() => {
+                    res.redirect("/secrets");
+                });
+            }
         }
     });
 });
