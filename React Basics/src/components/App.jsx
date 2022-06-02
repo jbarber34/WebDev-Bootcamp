@@ -8,7 +8,7 @@ function App() {
     <div>
       <h1 className="heading">My Contacts</h1>
 
-      <Avatar img="https://media-exp1.licdn.com/dms/image/C5603AQE1Fo7BKj-6bw/profile-displayphoto-shrink_800_800/0/1516904900067?e=1659571200&v=beta&t=8ggyF-4i4TB2IMY0PAPGc4KW5R8V1XZCcafzpgc56Ug" />
+      <Avatar img="https://cdn1.vectorstock.com/i/1000x1000/47/90/cartoon-programmer-writes-code-workspace-concept-vector-20874790.jpg" />
 
       {contacts.map(createCard)}
 
