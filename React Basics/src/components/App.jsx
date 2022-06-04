@@ -10,7 +10,12 @@ function App() {
 
       <Avatar img="https://cdn1.vectorstock.com/i/1000x1000/47/90/cartoon-programmer-writes-code-workspace-concept-vector-20874790.jpg" />
 
-      {contacts.map(createCard)}
+      {contacts.filter((contact) => {
+        return contact.type === "personal";
+      }).map((contact) => {
+        return contact
+      }).map(createCard)
+      }
 
     </div>
   );
