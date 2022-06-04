@@ -1,12 +1,13 @@
 import Header from "./Header";
-import Note from "./Note";
 import Footer from "./Footer";
+import notes from "../notes";
+import createNote from "./CreateNote";
 
 function App() {
     return (
         <div>
             <Header />
-            <Note />
+            {notes.map(createNote)}
             <Footer />
         </div>
     );
