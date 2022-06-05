@@ -1,10 +1,12 @@
 import renderConditional from "./RenderConditional";
 
-var isLoggedIn = true;
+var isLoggedIn = false;
+var userIsRegistered = false;
+
 
 function App() {
   return (
-    renderConditional(isLoggedIn)
+    renderConditional(isLoggedIn, userIsRegistered)
   );
 }
 

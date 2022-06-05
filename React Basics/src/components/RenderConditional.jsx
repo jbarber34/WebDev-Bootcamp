@@ -1,8 +1,8 @@
 import Login from "./Login";
 import Main from "./Main"
 
-function RenderConditional(isLoggedIn) {
-    return isLoggedIn ? <Main /> : <Login />
+function RenderConditional(isLoggedIn, userIsRegistered) {
+    return isLoggedIn ? <Main /> : <Login registered={userIsRegistered} />
 }
 
 export default RenderConditional;
