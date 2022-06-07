@@ -1,8 +1,12 @@
+import { useState } from "react";
 import contacts from "../contacts";
 import Avatar from "./Avatar";
 import createCard from "./CreateCard";
 
 function Main(props) {
+
+    const [isMousedOver, setMouseOver] = useState(false);
+
     return (
         <div>
             <h1 className="heading">My Contacts</h1>
@@ -16,7 +20,13 @@ function Main(props) {
             }).map(createCard)
             }
             <form>
-                <button className="mainButton" onClick={props.loggedIn} type="submit">Logout</button>
+                <button
+                    style={{ backgroundColor: isMousedOver ? "black" : "#00cec9" }}
+                    onMouseOver={() => { setMouseOver(true) }}
+                    onMouseOut={() => { setMouseOver(false) }}
+                    className="mainButton"
+                    onClick={props.loggedIn}
+                    type="submit">Logout</button>
             </form>
 
         </div>
