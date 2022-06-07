@@ -2,7 +2,7 @@ import contacts from "../contacts";
 import Avatar from "./Avatar";
 import createCard from "./CreateCard";
 
-function Main() {
+function Main(props) {
     return (
         <div>
             <h1 className="heading">My Contacts</h1>
@@ -15,6 +15,9 @@ function Main() {
                 return contact
             }).map(createCard)
             }
+            <form>
+                <button className="mainButton" onClick={props.loggedIn} type="submit">Logout</button>
+            </form>
 
         </div>
     );
