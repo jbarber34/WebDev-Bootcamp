@@ -1,7 +1,5 @@
 import Header from "./Header";
 import Footer from "./Footer";
-// import notes from "../notes";
-// import createNote from "./CreateNote";
 import { useState } from "react";
 import CreateArea from "./CreateArea";
 import Note from "./Note.jsx"
