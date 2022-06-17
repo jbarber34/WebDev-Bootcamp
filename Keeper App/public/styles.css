@@ -61,6 +61,7 @@ footer p {
 }
 
 .note button {
+    background-color: transparent;
     position: relative;
     float: right;
     margin-right: 10px;
