@@ -1,4 +1,7 @@
 import { useState } from "react";
+import AddIcon from '@material-ui/icons/Add';
+import Fab from '@material-ui/core/Fab';
+import Zoom from '@material-ui/core/Zoom';
 
 function CreateArea(props) {
 
@@ -7,6 +10,10 @@ function CreateArea(props) {
         content: ""
     });
 
+    const [isExpanded, setExpanded] = useState({
+        expanded: false,
+        rows: 1
+    });
 
     function handleChange(event) {
         const { name, value } = event.target
@@ -15,6 +22,13 @@ function CreateArea(props) {
                 ...prevNote,
                 [name]: value
             }
+        });
+    }
+
+    function expand(event) {
+        setExpanded({
+            expanded: true,
+            rows: 3
         });
     }
 
@@ -30,23 +44,29 @@ function CreateArea(props) {
     return (
         <div>
             <form className="create-note">
-                <input
-                    onChange={handleChange}
-                    name="title"
-                    placeholder="Title"
-                    value={note.title} />
+                {isExpanded.expanded && (
+                    <input
+                        onChange={handleChange}
+                        name="title"
+                        placeholder="Title"
+                        value={note.title}
+                        autoFocus
+                    />
+                )}
                 <textarea
                     onChange={handleChange}
+                    onClick={expand}
                     name="content"
                     placeholder="Take a note..."
-                    rows="3"
+                    rows={isExpanded.rows}
                     value={note.content} />
-                <button
-                    onClick={submitNote}
-                >Add
-                </button>
+                <Zoom in={isExpanded.expanded}>
+                    <Fab onClick={submitNote}>
+                        <AddIcon />
+                    </Fab>
+                </Zoom>
             </form>
-        </div>
+        </div >
     );
 }
 
