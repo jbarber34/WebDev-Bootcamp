@@ -14,19 +14,25 @@ This repository stores projects completed during my time spent taking The Comple
     - Training on MongoDB
 6. HTML - Personal Site
     - About me web app built in HTML
-7. Personal Blog
+7. Keeper App
+    - Notepad app to save tasks and notes
+8. Personal Blog
     - Code to complete a personal blog
-8. Personal Website
+9. Personal Website
     - About me web app that adds includes CSS
-9. Secrets App
+10. React Basics
+    - Login and Contact List using basic React tools
+11. React To-Do List
+    - To-Do list app built in React
+12. Secrets App
     - Basic secret app that introduces different security authorization
-10. The Simon Game
+13. The Simon Game
     - Memory game based on Simon Game
-11. To-Do List
-    - An app to store multiple to-do lists
-12. Weather Project
+14. To-Do List
+    - An app to store multiple to-do lists built is HTML, CSS, and JavaScript
+15. Weather Project
     - App that explores the weather channel API
-13. Wiki-API
+16. Wiki-API
     - Build my personal RESTful API
 
 # Contribute/Questions
