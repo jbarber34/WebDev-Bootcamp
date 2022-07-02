@@ -2,7 +2,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import { useState } from "react";
 import CreateArea from "./CreateArea";
-import Note from "./Note.jsx"
+import Note from "./Note.jsx";
 
 
 function App() {
