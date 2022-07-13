@@ -16,25 +16,28 @@ This repository stores projects completed during my time spent taking The Comple
     - About me web app built in HTML
 7. Keeper App
     - Notepad app to save tasks and notes
-8. Personal Blog
+8. Loki Token
+    - Internet computer token (Stored in separate repo)
+9. Personal Blog
     - Code to complete a personal blog
-9. Personal Website
+10. Personal Website
     - About me web app that adds includes CSS
-10. React Basics
+11. React Basics
     - Login and Contact List using basic React tools
-11. React To-Do List
+12. React To-Do List
     - To-Do list app built in React
-12. Secrets App
+13. Secrets App
     - Basic secret app that introduces different security authorization
-13. The Simon Game
+14. The Simon Game
     - Memory game based on Simon Game
-14. To-Do List
+15. To-Do List
     - An app to store multiple to-do lists built is HTML, CSS, and JavaScript
-15. Weather Project
+16. Weather Project
     - App that explores the weather channel API
-16. Wiki-API
+17. Wiki-API
     - Build my personal RESTful API
 
 # Contribute/Questions
 
 For questions on using or adding to this code, please reach out to James Barber at jpbarber34@gmail.com
+
