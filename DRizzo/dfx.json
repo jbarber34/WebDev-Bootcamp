@@ -1,19 +1,23 @@
 {
   "canisters": {
-    "opend": {
-      "main": "src/opend/main.mo",
+    "drizzo": {
+      "main": "src/drizzo/main.mo",
       "type": "motoko"
     },
-    "opend_assets": {
+    "nft": {
+      "main": "src/NFT/nft.mo",
+      "type": "motoko"
+    },
+    "drizzo_assets": {
       "dependencies": [
-        "opend"
+        "drizzo"
       ],
       "frontend": {
-        "entrypoint": "src/opend_assets/src/index.html"
+        "entrypoint": "src/drizzo_assets/src/index.html"
       },
       "source": [
-        "src/opend_assets/assets",
-        "dist/opend_assets/"
+        "src/drizzo_assets/assets",
+        "dist/drizzo_assets/"
       ],
       "type": "assets"
     }

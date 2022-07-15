@@ -38,7 +38,7 @@ const canisterEnvVariables = initCanisterEnv();
 
 const isDevelopment = process.env.NODE_ENV !== "production";
 
-const frontendDirectory = "opend_assets";
+const frontendDirectory = "drizzo_assets";
 
 const asset_entry = path.join("src", frontendDirectory, "src", "index.html");
 
@@ -82,7 +82,7 @@ module.exports = {
       { test: /\.svg$/, use: ["svg-url-loader"] },
       { test: /\.(jpg|png|webp)$/, use: ["url-loader"] },
     ]
-   },
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: path.join(__dirname, asset_entry),
