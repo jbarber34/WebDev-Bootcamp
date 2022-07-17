@@ -2,7 +2,7 @@ import Debug "mo:base/Debug";
 import Principal "mo:base/Principal";
 
 // Add new actor class to programtically create actors
-actor class NFT (name: Text, owner: Principal, content: [Nat8]) {
+actor class NFT (name: Text, owner: Principal, content: [Nat8]) = this {
 
 // Save inputs into variables
 let itemName = name;
@@ -20,6 +20,10 @@ public query func getOwner() : async Principal {
 
 public query func getAsset() : async [Nat8] {
     return imageBytes;
+};
+
+public query func getCanisterId() : async Principal {
+    return Principal.fromActor(this);
 };
 
 };
