@@ -13,7 +13,7 @@ function Item(props) {
   const [image, setImage] = useState();
 
   // Grab NFT id from prop
-  const id = Principal.fromText(props.id);
+  const id = props.id;
 
   // Access the canister using HTTP command to fetch the canister on the blockchain (or local host)
   const localHost = "http://localhost:8080/";
