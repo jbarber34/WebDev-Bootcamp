@@ -4,6 +4,7 @@ import { Actor, HttpAgent } from "@dfinity/agent";
 import { idlFactory } from "../../../declarations/nft";
 import { canisterId } from "../../../declarations/drizzo/index";
 import { Principal } from "@dfinity/principal";
+import Button from "./Button";
 
 function Item(props) {
 
@@ -11,6 +12,8 @@ function Item(props) {
   const [name, setName] = useState();
   const [owner, setOwner] = useState();
   const [image, setImage] = useState();
+  const [button, setButton] = useState();
+  const [priceInput, setPriceInput] = useState();
 
   // Grab NFT id from prop
   const id = props.id;
@@ -39,12 +42,34 @@ function Item(props) {
     const imageContent = new Uint8Array(imageData); // Convernt into correct format
     const image = URL.createObjectURL(new Blob([imageContent.buffer], { type: "image/png" })); // Turn image into actual URL
     setImage(image);
+    // Set Button from Button.jsx
+    setButton(<Button handleClick={handleSell} text={"Sell"} />);
   };
 
   // Set up so the above function only called the first time this is rendered
   useEffect(() => {
     loadNFT();
   }, [])
+
+  // Set up handle function for setting price an NFT
+  let price;
+  function handleSell() {
+    setPriceInput(<input
+      placeholder="Price in LOKI"
+      type="number"
+      className="price-input"
+      value={price}
+      onChange={(e) => price = e.target.value}
+    />
+    );
+    // Reset button text
+    setButton(<Button handleClick={sellItem} text={"Confirm"} />);
+  };
+
+  // Create function to confirm sale of NFT
+  async function sellItem() {
+    console.log("confirm clicked");
+  }
 
   return (
     <div className="disGrid-item">
@@ -60,6 +85,8 @@ function Item(props) {
           <p className="disTypography-root makeStyles-bodyText-24 disTypography-body2 disTypography-colorTextSecondary">
             Owner: {owner}
           </p>
+          {priceInput}
+          {button}
         </div>
       </div>
     </div>
