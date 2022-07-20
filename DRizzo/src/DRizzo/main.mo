@@ -80,5 +80,9 @@ actor DRizzo {
             return "You don't own this NFT."
         }
     };
-
+    
+    // Create function to get canister id for sales when transfering item to the canister
+    public query func getDRizzoCanisterID() : async Principal {
+        return Principal.fromActor(DRizzo);
+    };
 };

@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import logo from "../../assets/logo.png";
 import { Actor, HttpAgent } from "@dfinity/agent";
 import { idlFactory } from "../../../declarations/nft";
-import { canisterId } from "../../../declarations/drizzo/index";
+import { canisterId, drizzo } from "../../../declarations/drizzo/index";
 import { Principal } from "@dfinity/principal";
+import { drizzo } from "../../../declarations/drizzo";
 import Button from "./Button";
 
 function Item(props) {
@@ -22,10 +23,15 @@ function Item(props) {
   const localHost = "http://localhost:8080/";
   // Create http agent with JS initializers
   const agent = new HttpAgent({ host: localHost });
+  // TODO: When deploying live, remove the next line of code
+  // Fetch root key when operating locally
+  agent.fetchRootKey();
+  // Create NFTActor variable to be used later in loadNFT() function
+  let NFTActor;
 
   // Use the agent to fetch the name, owner, and image
   async function loadNFT() {
-    const NFTActor = await Actor.createActor(idlFactory, {
+    NFTActor = await Actor.createActor(idlFactory, {
       agent,
       canisterId: id,
     });
@@ -68,8 +74,14 @@ function Item(props) {
 
   // Create function to confirm sale of NFT
   async function sellItem() {
-    console.log("confirm clicked");
-  }
+    // List item for sale
+    const listingResult = await drizzo.listItem(props.id, Number(price));
+    // If seller is confirmed, make the transfer of ownership of the NFT
+    if (listingResult == "Success") {
+      const dRizzoId = await drizzo.getDRizzoCanisterID();
+      const transferResult = await NFTActor.transferOwnership(dRizzoId);
+    };
+  };
 
   return (
     <div className="disGrid-item">
