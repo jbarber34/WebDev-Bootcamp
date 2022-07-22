@@ -15,6 +15,9 @@ function Item(props) {
   const [image, setImage] = useState();
   const [button, setButton] = useState();
   const [priceInput, setPriceInput] = useState();
+  const [loaderHidden, setLoaderHidden] = useState(true);
+  const [blur, setBlur] = useState();
+  const [sellStatus, setSellStatus] = useState("");
 
   // Grab NFT id from prop
   const id = props.id;
@@ -48,8 +51,16 @@ function Item(props) {
     const imageContent = new Uint8Array(imageData); // Convernt into correct format
     const image = URL.createObjectURL(new Blob([imageContent.buffer], { type: "image/png" })); // Turn image into actual URL
     setImage(image);
-    // Set Button from Button.jsx
-    setButton(<Button handleClick={handleSell} text={"Sell"} />);
+    // Track when NFT is listed and set owner and blue
+    const nftIsListed = await drizzo.isListed(props.id);
+    if (nftIsListed) {
+      setOwner("DRizzo");
+      setBlur({ filter: "blur(4px)" });
+      setSellStatus("Listed");
+    } else {
+      // Set Button to handle the click and sell
+      setButton(<Button handleClick={handleSell} text={"Sell"} />);
+    }
   };
 
   // Set up so the above function only called the first time this is rendered
@@ -74,12 +85,24 @@ function Item(props) {
 
   // Create function to confirm sale of NFT
   async function sellItem() {
+    // Blur image out when selling by adding css to styling
+    setBlur({ filter: "blur(4px)" });
+    // Show loader animation
+    setLoaderHidden(false);
     // List item for sale
     const listingResult = await drizzo.listItem(props.id, Number(price));
     // If seller is confirmed, make the transfer of ownership of the NFT
     if (listingResult == "Success") {
       const dRizzoId = await drizzo.getDRizzoCanisterID();
       const transferResult = await NFTActor.transferOwnership(dRizzoId);
+      // Hide loader again once transfer is a success
+      if (transferResult == "Success") {
+        setLoaderHidden(true);
+        setButton();
+        setPriceInput();
+        setOwner("DRizzo");
+        setSellStatus("Listed");
+      };
     };
   };
 
@@ -89,10 +112,18 @@ function Item(props) {
         <img
           className="disCardMedia-root makeStyles-image-19 disCardMedia-media disCardMedia-img"
           src={image}
+          style={blur}
         />
+        <div hidden={loaderHidden} className="lds-ellipsis">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
         <div className="disCardContent-root">
           <h2 className="disTypography-root makeStyles-bodyText-24 disTypography-h5 disTypography-gutterBottom">
-            {name}<span className="purple-text"></span>
+            {name}
+            <span className="purple-text"> {sellStatus}</span>
           </h2>
           <p className="disTypography-root makeStyles-bodyText-24 disTypography-body2 disTypography-colorTextSecondary">
             Owner: {owner}
