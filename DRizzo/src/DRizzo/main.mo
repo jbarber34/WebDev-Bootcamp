@@ -3,6 +3,7 @@ import Principal "mo:base/Principal";
 import NFTActorClass "../nft/nft";
 import HashMap "mo:base/HashMap";
 import List "mo:base/List";
+import Iter "mo:base/Iter";
 
 actor DRizzo {
 
@@ -49,7 +50,7 @@ actor DRizzo {
         mapOfOwners.put(owner, ownedNFTs);
     };
 
-    // Create method to bring this backend info to the front end
+    // Create method to bring the owned NFTs to the front end
     public query func getOwnedNFTs(user:Principal) : async [Principal] {
         var userNFTs : List.List<Principal> = switch (mapOfOwners.get(user)){
             case null List.nil<Principal>();
@@ -57,6 +58,12 @@ actor DRizzo {
         };
 
         return List.toArray(userNFTs);
+    };
+
+    // Create method to bring the owned NFTs to the front end
+    public query func getListedNFTs() : async [Principal] {
+        let ids = Iter.toArray(mapOfListings.keys());
+        return ids;
     };
 
     // Get ahold of callers ID for selling an NFT
@@ -93,5 +100,26 @@ actor DRizzo {
         } else {
             return true;
         }
+    };
+
+    // Function to find original owner of NFT
+    public query func getOriginalOwner(id: Principal) : async Principal {
+        var listing : Listing = switch (mapOfListings.get(id)) {
+            // If the buyer is not in the system, return empty string, otherwise unpack the result and return the item original owner
+            case null return Principal.fromText("");
+            case (?result) result;
+        };
+
+        return listing.itemOwner;
+    };
+
+    // Create new function for checking list price of NFT
+    public query func getListedNFTPrice(id: Principal) : async Nat {
+        var listing : Listing = switch (mapOfListings.get(id)) {
+            case null return 0;
+            case (?result) result;
+        };
+
+        return listing.itemPrice;
     };
 };

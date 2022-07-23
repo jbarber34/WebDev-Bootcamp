@@ -107,7 +107,7 @@ dfx canister call drizzo mint '(vec {137; 80; 78; 71; 13; 10; 26; 10; 0; 0; 0; 1
 2. List the item into mapOfListings:
 
 ```
-dfx canister call drizzo listItem '(principal "<REPLACE WITH NFT CANISTER ID>", 2)'
+dfx canister call drizzo listItem '(principal "s24we-diaaa-aaaaa-aaaka-cai", 2)'
 ```
 
 3. Get DRizzo canister ID:
@@ -119,7 +119,7 @@ dfx canister id drizzo
 4. Transfer NFT to DRizzo:
 
 ```
-dfx canister call <REPLACE WITH NFT CANISTER ID> transferOwnership '(principal "<REPLACE WITH DRIZZO CANISTER ID>", true)'
+dfx canister call s24we-diaaa-aaaaa-aaaka-cai transferOwnership '(principal "rrkah-fqaaa-aaaaa-aaaaq-cai", true)'
 ```
 
 # Conneting to the Token Canister

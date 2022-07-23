@@ -10,13 +10,18 @@ import CURRENT_USER_ID from "../index";
 
 function Header() {
 
-  // Get all NFTs from users gallary
+  // Get all NFTs from users gallery
   const [userOwnedGallery, setOwnedGallery] = useState();
+  // Set the listing gallery const
+  const [listingGallery, setListingGallery] = useState();
 
   // Grab NFTs from the back end
   async function getNFTs() {
+    // Get all owned and listed ids
     const userNFTIds = await drizzo.getOwnedNFTs(CURRENT_USER_ID);
-    setOwnedGallery(<Gallery title="My NFTs" ids={userNFTIds} />);
+    setOwnedGallery(<Gallery title="My NFTs" ids={userNFTIds} role="collection" />);
+    const listedNFTIds = await drizzo.getListedNFTs();
+    setListingGallery(<Gallery title="Discover" ids={listedNFTIds} role="discover" />);
   };
 
   // Trigger getNFTs the first time this is rendered
@@ -63,7 +68,7 @@ function Header() {
           <img className="bottom-space" src={homeImage} />
         </Route>
         <Route path="/discover">
-          <h1>Discover</h1>
+          {listingGallery}
         </Route>
         <Route path="/minter">
           <Minter />

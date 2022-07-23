@@ -6,6 +6,8 @@ import { canisterId, drizzo } from "../../../declarations/drizzo/index";
 import { Principal } from "@dfinity/principal";
 import { drizzo } from "../../../declarations/drizzo";
 import Button from "./Button";
+import CURRENT_USER_ID from "../index";
+import PriceLabel from "./PriceLabel";
 
 function Item(props) {
 
@@ -18,6 +20,7 @@ function Item(props) {
   const [loaderHidden, setLoaderHidden] = useState(true);
   const [blur, setBlur] = useState();
   const [sellStatus, setSellStatus] = useState("");
+  const [priceLabel, setPriceLabel] = useState();
 
   // Grab NFT id from prop
   const id = props.id;
@@ -51,15 +54,33 @@ function Item(props) {
     const imageContent = new Uint8Array(imageData); // Convernt into correct format
     const image = URL.createObjectURL(new Blob([imageContent.buffer], { type: "image/png" })); // Turn image into actual URL
     setImage(image);
-    // Track when NFT is listed and set owner and blue
-    const nftIsListed = await drizzo.isListed(props.id);
-    if (nftIsListed) {
-      setOwner("DRizzo");
-      setBlur({ filter: "blur(4px)" });
-      setSellStatus("Listed");
-    } else {
-      // Set Button to handle the click and sell
-      setButton(<Button handleClick={handleSell} text={"Sell"} />);
+
+    // Conditional for either listed or owned page
+    if (props.role == "collection") {
+
+      // Track when NFT is listed and set owner and blue
+      const nftIsListed = await drizzo.isListed(props.id);
+      if (nftIsListed) {
+        setOwner("DRizzo");
+        setBlur({ filter: "blur(4px)" });
+        setSellStatus("Listed");
+      } else {
+        // Set Button to handle the click and sell
+        setButton(<Button handleClick={handleSell} text={"Sell"} />);
+      }
+    } else if (props.role == "discover") {
+      // Check for original owner to ensure original owner can't buy what they just listed
+      const originalOwner = await drizzo.getOriginalOwner(props.id);
+      // Check if original owner is equal to the logged in user
+      if (originalOwner.toText() != CURRENT_USER_ID.toText()) {
+        // Set Button to handle the click and buy if original owner is NOT the current buyer
+        setButton(<Button handleClick={handleBuy} text={"Buy"} />);
+      }
+
+      // Check price of NFT so we can list on the Discover page
+      const price = await drizzo.getListedNFTPrice(props.id);
+      setPriceLabel(<PriceLabel sellPrice={price.toString()} />);
+
     }
   };
 
@@ -106,6 +127,11 @@ function Item(props) {
     };
   };
 
+  // Create function for buying NFT
+  async function handleBuy() {
+
+  };
+
   return (
     <div className="disGrid-item">
       <div className="disPaper-root disCard-root makeStyles-root-17 disPaper-elevation1 disPaper-rounded">
@@ -121,6 +147,7 @@ function Item(props) {
           <div></div>
         </div>
         <div className="disCardContent-root">
+          {priceLabel}
           <h2 className="disTypography-root makeStyles-bodyText-24 disTypography-h5 disTypography-gutterBottom">
             {name}
             <span className="purple-text"> {sellStatus}</span>
