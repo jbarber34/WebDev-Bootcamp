@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import logo from "../../assets/logo.png";
 import { Actor, HttpAgent } from "@dfinity/agent";
 import { idlFactory } from "../../../declarations/nft";
-import { canisterId, drizzo } from "../../../declarations/drizzo/index";
+import { idlFactory as lokiTokenIdlFactory } from "../../../declarations/LokiToken";
+import { drizzo } from "../../../declarations/drizzo";
 import { Principal } from "@dfinity/principal";
 import { drizzo } from "../../../declarations/drizzo";
 import Button from "./Button";
@@ -21,6 +22,7 @@ function Item(props) {
   const [blur, setBlur] = useState();
   const [sellStatus, setSellStatus] = useState("");
   const [priceLabel, setPriceLabel] = useState();
+  const [shouldDisplay, setDisplay] = useState(true);
 
   // Grab NFT id from prop
   const id = props.id;
@@ -129,11 +131,31 @@ function Item(props) {
 
   // Create function for buying NFT
   async function handleBuy() {
+    console.log("Buy was triggered");
+    setLoaderHidden(false);
+    // Get ID from LokiToken Idl Factor
+    const lokiTokenActor = await Actor.createActor(lokiTokenIdlFactory, {
+      agent,
+      canisterId: Principal.fromText("rrkah-fqaaa-aaaaa-aaaaq-cai"),
+    });
 
+    // Get seller Principal ID and item price
+    const sellerId = await drizzo.getOriginalOwner(props.id);
+    const itemPrice = await drizzo.getListedNFTPrice(props.id);
+
+    // Set up fund transfer from buyer to seller
+    const result = await lokiTokenActor.transfer(sellerId, itemPrice);
+    if (result == "Success") {
+      // Transfer ownership
+      const transferResult = await drizzo.completePurchase(props.id, sellerId, CURRENT_USER_ID);
+      console.log("Purchase: " + transferResult);
+      setLoaderHidden(true);
+      setDisplay(false); 
+    }
   };
 
   return (
-    <div className="disGrid-item">
+    <div style={{ display: shouldDisplay ? "inline" : "none" }} className="disGrid-item">
       <div className="disPaper-root disCard-root makeStyles-root-17 disPaper-elevation1 disPaper-rounded">
         <img
           className="disCardMedia-root makeStyles-image-19 disCardMedia-media disCardMedia-img"

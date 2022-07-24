@@ -122,4 +122,32 @@ actor DRizzo {
 
         return listing.itemPrice;
     };
+
+    // Create new function to transfer ownership of NFT
+    public shared(msg) func completePurchase(id: Principal, ownerId: Principal, newOwnerId: Principal) : async Text {
+        var purchasedNFT : NFTActorClass.NFT = switch (mapOfNFTs.get(id)) {
+            case null return "NFT does not exist";
+            case (?result) result
+        };
+
+        // Transfer the NFT to the new owner
+        let transferResult = await purchasedNFT.transferOwnership(newOwnerId);
+        if (transferResult == "Success"){
+            // Delete the listing from the previous owner
+            mapOfListings.delete(id);
+            var ownedNFTs : List.List<Principal> = switch (mapOfOwners.get(ownerId)){
+                case null List.nil<Principal>();
+                case (?result) result;
+            };
+            ownedNFTs := List.filter(ownedNFTs, func (listItemId: Principal) : Bool {
+                return listItemId != id; 
+            });
+
+            // Add to ownership map of new owner
+            addToOwnershipMap(newOwnerId, id);
+            return "Success";
+        } else {
+            return transferResult;
+        }
+    } ;
 };
